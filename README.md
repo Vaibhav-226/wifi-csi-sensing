@@ -11,16 +11,21 @@ physical layer security research.
 It runs on a Raspberry Pi 3B+ using Nexmon firmware to capture raw CSI data 
 from the onboard WiFi chip.
 
-## Project 1 — Presence Detection (current)
-Detecting human presence using variance analysis across CSI subcarriers.
-A person's body causes breathing-induced signal fluctuation at around 0.3 Hz,
-which creates measurable variance on body-sensitive subcarriers (20 to 44 
-out of 64 total). Currently implemented as a Python simulation — hardware 
-testing on Raspberry Pi planned for July 2026.
+## Project 1 — Presence Detection (in progress)
+
+Simulation and signal processing pipeline complete. Implemented:
+- Variance-based presence detection across 64 CSI subcarriers
+- FFT-based breathing frequency detection (0.3 Hz peak identified)
+- Multi-subcarrier FFT heatmap showing spatial selectivity of breathing signature
+- PCA dimensionality reduction (PC1 captures 47% of variance, separates empty room vs person present)
+
+Hardware implementation on Raspberry Pi 3B+ with Nexmon firmware arriving July 4.
 
 ## How to Run
+
 python csi_detector.py
-Dependencies: numpy, matplotlib
+
+Dependencies: numpy, matplotlib, scikit-learn
 
 ## Roadmap
 - Project 1: CSI-based presence and motion detection (current)
